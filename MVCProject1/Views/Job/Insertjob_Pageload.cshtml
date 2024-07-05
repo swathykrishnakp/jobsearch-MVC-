@@ -1,0 +1,101 @@
+﻿@model MVCProject1.Models.Jobinsertion
+@{
+    ViewBag.Title = "Insertjob_Pageload";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Insertjob_Pageload</h2>
+<div>
+
+    <h2>Insert Job</h2>
+
+    @using (Html.BeginForm("Insertjob_click", "Job", FormMethod.Post))
+    {
+        <div>
+            <label>JobTittle:</label>
+        </div>
+
+        <div>
+            @Html.TextBoxFor(m => m.Jtittle)
+            @Html.ValidationMessageFor(m => m.Jtittle)
+        </div>
+
+
+        <div>
+            <label>Job Experience:</label>
+        </div>
+
+        <div>
+            @Html.TextBoxFor(m => m.JExp)
+            @Html.ValidationMessageFor(m => m.JExp)
+        </div>
+
+
+        <div>
+            <label>Skills:</label>
+        </div>
+
+        <div>
+
+            @Html.TextAreaFor(m => m.JSkill)
+        </div>
+
+
+        <div>
+            <label>No of vaccancy:</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.jVacc)
+            @Html.ValidationMessageFor(m => m.jVacc)
+        </div>
+
+        <div>
+            <label>State</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.ldate)
+            @Html.ValidationMessageFor(m => m.ldate)
+        </div>
+
+
+        <div>
+            <label>Status:</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.jStatus)
+            @Html.ValidationMessageFor(m => m.jStatus)
+        </div>
+
+
+
+
+
+        <div>
+            <input type="submit" value="Insert" />
+            @Html.DisplayFor(m => m.jmsg)
+        </div>
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+

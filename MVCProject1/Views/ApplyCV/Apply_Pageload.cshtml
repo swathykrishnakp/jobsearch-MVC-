@@ -1,0 +1,48 @@
+﻿@model MVCProject1.Models.Apply
+@{
+    ViewBag.Title = "Apply_Pageload";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Apply_Pageload</h2>
+
+
+<div>
+
+    @using (Html.BeginForm("Apply_Click", "ApplyCV", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+
+        <div>
+            <label>Resume :</label>
+        </div>
+        <div>
+            @Html.TextBox("uresumeFile", "", new { Type = "file" })
+        </div>
+
+
+
+        <div>
+            <label>Application Date :</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.App_Date)
+
+            @Html.ValidationMessageFor(m => m.App_Date)
+        </div>
+
+        <div>
+            <label> Status :</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.Status)
+
+            @Html.ValidationMessageFor(m => m.Status)
+        </div>
+
+        <div>
+            <input type="submit" value="Insert" />
+            @Html.DisplayFor(m => m.apmsg)
+        </div>
+
+    }
+</div>

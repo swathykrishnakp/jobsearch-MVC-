@@ -1,0 +1,148 @@
+﻿@model MVCProject1.Models.UserInsert
+@{
+    ViewBag.Title = "Insert_Pageload";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>User Insertion</h2>
+
+<div>
+
+    @using (Html.BeginForm("Insert_click", "UserReg", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div>
+            <label>Name :</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.uname)
+            @Html.ValidationMessageFor(m => m.uname)
+        </div>
+        <div>
+            <label>Age:</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.uage)
+            @Html.ValidationMessageFor(m => m.uage)
+        </div>
+        <div>
+            <label>Address:</label>
+        </div>
+        <div>
+            @Html.TextAreaFor(m => m.uaddress)
+            @Html.ValidationMessageFor(m => m.uaddress)
+        </div>
+
+
+        <div>
+            <label>Email :</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.uemail)
+            @Html.ValidationMessageFor(m => m.uemail)
+        </div>
+        <div>
+            <label>Phone :</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.uphone)
+            @Html.ValidationMessageFor(m => m.uphone)
+        </div>
+        <div>
+            <label>Photo :</label>
+        </div>
+        <div>
+            @Html.TextBox("file", "", new { Type = "file" })
+        </div>
+        <div>
+            <label>Qualification</label>
+        </div>
+        <div>
+            @foreach (var item in Model.MyFavoriteQual)
+            {
+                <label>
+                    <input type="checkbox" value="@item.Value" checked="@item.IsChecked" name="selectedQual" id="@item.Value" />@Html.Raw(item.Text)
+                </label>
+            }
+
+        </div>
+
+        <div>
+            <label>Experience :</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.uexp)
+            @Html.ValidationMessageFor(m => m.uexp)
+        </div>
+        <div>
+            <label>Skills :</label>
+        </div>
+        <div>
+            @*@Html.TextBoxFor(m => m.uskill)*@
+            @Html.TextAreaFor(m => m.uskill)
+        </div>
+
+
+        <div>
+            <label>Resume :</label>
+        </div>
+        <div>
+            @Html.TextBox("uresumeFile", "", new { Type = "file" })
+        </div>
+
+        <div>
+            <label>Username:</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.Username)
+            @Html.ValidationMessageFor(m => m.Username)
+        </div>
+
+        <div>
+            <label>Password:</label>
+        </div>
+        <div>
+            @Html.PasswordFor(m => m.Password)
+            @Html.ValidationMessageFor(m => m.Password)
+        </div>
+        <div>
+            <label>Confirm Password:</label>
+        </div>
+
+        <div>
+            @Html.PasswordFor(m => m.CPassword)
+            @Html.ValidationMessageFor(m => m.CPassword)
+        </div>
+        <div>
+            <input type="submit" value="Insert" />
+            @Html.DisplayFor(m => m.umsg)
+        </div>
+
+
+
+    }
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
